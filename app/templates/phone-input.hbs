@@ -1,0 +1,28 @@
+{{page-title "PhoneInput"}}
+
+<h1>Phone Input with Dropdown for Countries</h1>
+
+<blockquote>
+    The dropdown takes its values from the options variable defined in the controller.<br>
+
+</blockquote>
+
+<br/>
+<fieldset>
+    <select onchange={{action (mut this.selectedOption) value='target.value'}} id="countries">
+        {{#each this.options as |item|}}
+            <option data-prefix={{item.prefix}} value='{{item.prefix}}' selected={{item.selected}}>
+                <span class="icon">{{item.icon}}</span>
+                <span class="country">{{item.country}}</span>            
+                <span class="prefix">( {{item.prefix}} )</span>
+            </option>
+        {{/each}}
+    </select>
+
+    <Input 
+        id="phone"
+        @type="tel" 
+        @value={{this.selectedOption}}
+    />
+
+</fieldset>
