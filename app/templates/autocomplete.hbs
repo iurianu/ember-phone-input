@@ -1,0 +1,15 @@
+{{page-title "Autocomplete"}}
+
+<label for="search-input">
+  Search GitHub Repositories
+</label>
+<br>
+<br>
+<Autocomplete
+  id="search-input"
+  placeholder="Example: ember"
+  @value={{this.repo}}
+  @onInput={{this.setRepo}}
+  @search={{this.searchRepos}}
+  @options={{this.repos}}
+/>

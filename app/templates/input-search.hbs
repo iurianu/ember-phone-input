@@ -1,2 +1,39 @@
 {{page-title "InputSearch"}}
-{{outlet}}
+
+<h1>Phone Input with Dropdown for Countries</h1>
+
+<blockquote>
+    The dropdown takes its values from the options variable defined in this.the controller.<br>
+</blockquote>
+
+<br>
+
+<fieldset>
+
+    <label for="phone">{{mut this.selectedOption value='this.id'}}</label>
+    <Input 
+        id="phone"
+        @type="tel" 
+        @value={{this.selectedOption}}
+        itemprop={{this.selectedOption.code}}
+        pattern={{this.option.pattern}}
+    />
+
+    <br>
+      
+    <label for="search">
+        <Input @value={{this.query}} class="light" id="search" type="text" placeholder="Search Your Country!" />
+    </label>
+    <br>
+    <datalist class="results" 
+            onclick={{action (mut this.selectedOption) value='target.value'}} 
+            about={{get this.options.selectedOption value='selectedOption.id'}}
+        >
+       <AutocompleteInput @options={{this.options}} @query={{this.query}} as |items|>
+            {{#each items as |item|}}
+                <Option @item={{item}} />
+            {{/each}}
+        </AutocompleteInput>
+    </datalist>
+
+</fieldset>

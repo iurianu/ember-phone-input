@@ -11,7 +11,7 @@
 <fieldset>
     <select onchange={{action (mut this.selectedOption) value='target.value'}} id="countries">
         {{#each this.options as |item|}}
-            <option data-prefix={{item.prefix}} value='{{item.prefix}}' selected={{item.selected}}>
+            <option data-item-code={{item.code}} value='{{item.prefix}}' selected={{item.selected}}>
                 <span class="icon">{{item.icon}}</span>
                 <span class="country">{{item.country}}</span>            
                 <span class="prefix">( {{item.prefix}} )</span>
