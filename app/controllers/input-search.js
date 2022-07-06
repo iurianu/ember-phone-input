@@ -30,14 +30,8 @@ export default class InputSearchController extends Controller {
     },
   ];
 
-  @tracked options
+  @tracked options = []
 
-  @tracked
-  selectedOption = null;
-
-  @action
-  setOption(selectedOption) {
-    this.option = selectedOption;
-  }
+  @tracked selectedOption
 
 }
