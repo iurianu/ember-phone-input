@@ -1,5 +1,10 @@
 @import "ember-appuniversum";
 
+@font-face {
+    font-family: flanders-sans;
+    src: url('./fonts/flanders-sans-regular.woff2') format('woff2');
+}
+
 html, body {
     width: 100%;
     max-width: 100vw;
