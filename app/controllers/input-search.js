@@ -24,6 +24,4 @@ export default class InputSearchController extends Controller {
 
   @tracked selectedOption
 
-  @tracked isOptionSelected
-
 }
