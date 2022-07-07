@@ -73,9 +73,30 @@ fieldset {
             }
         } 
     }
+    &#input-number {
+        display: flex;
+        input {
+            &#in-phone {
+                width: 5.5rem;
+                padding: 0 .25rem;
+                text-align: right;
+            }
+            &#in-number {
+                border-width: 1px;
+                border-left-width: 0;
+            }
+        }
+    }
     input {
         &[type=tel] {
             padding-left: 40px;
+        }
+    }
+    &.phone-input {
+        input {
+            &[type=tel] {
+                padding: 0;
+            }
         }
     }
     datalist {

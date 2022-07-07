@@ -8,21 +8,37 @@
 
 <br>
 
-<fieldset>
+<fieldset class="phone-input">
+
+    <fieldset id="input-number">
+        <Input 
+            id="in-phone"
+            @type="text" 
+            @value={{this.selectedOption}}
+            disabled 
+        />
+        <Input
+            id="in-number"
+            @type="tel"
+        />
+    </fieldset>
+
+    <br>
 
     <Input 
-        id="phone"
-        @type="tel" 
-        @value={{this.selectedOption}}
+        @value={{this.query}} 
+        class="light" 
+        id="search" 
+        @type="text" 
+        placeholder="Search Your Country!" 
     />
 
     <br>
 
-    <Input @value={{this.query}} class="light" id="search" type="text" placeholder="Search Your Country!" />
-
-    <br>
-
-    <datalist class="results" onclick={{action (mut this.selectedOption) value='target.value'}}>
+    <datalist 
+        class="results" 
+        onclick={{action (mut this.selectedOption) value='target.value'}}
+    >
        <AutocompleteInput @options={{this.options}} @query={{this.query}} as |items|>
             {{#each items as |item|}}
                 <Option @item={{item}} />
