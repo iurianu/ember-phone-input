@@ -7,7 +7,7 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  this.route('index');
+  this.route('index', { path: '/' });
   this.route('phone-input');
   this.route('input-search');
   this.route('autocomplete');
