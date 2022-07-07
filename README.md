@@ -1,16 +1,6 @@
-# phone-test
+# phone-input-test-app
 
 This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
-
-## Prerequisites
-
-You will need the following things properly installed on your computer.
-
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
-* [Ember CLI](https://cli.emberjs.com/release/)
-* [Google Chrome](https://google.com/chrome/)
 
 ## Installation
 
@@ -20,37 +10,24 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
-* `ember serve`
+* `ember serve` or `ember s`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
-### Code Generators
+## Description
 
-Make use of the many generators for code, try `ember help generate` for more details
+The app contains 3 functions, provided on 3 different pages:
 
-### Running Tests
+* `Phone Input`, which is an input with the option to select countries from a dropdown (select+options)
+* `Search Input with Autocomplete`, which makes a query on existent github repos, 
+* `Phone Input with Search`, which is an input of type `tel`, with options to search for a country, and dinamically update the prefix
 
-* `ember test`
-* `ember test --server`
+## Tech Stack
 
-### Linting
+* `node.js` v14.17.0.
+* `ember-cli` v4.4.0.
+* `appuniversum` v1.2.1.
+* `ember-cli-sass` v11.0.1.
 
-* `npm run lint`
-* `npm run lint:fix`
+## Deployment
 
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://cli.emberjs.com/release/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+> The app is deployed, in development mode, on Netlify
