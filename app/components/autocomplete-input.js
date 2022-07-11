@@ -16,7 +16,7 @@ export default class AutocompleteInputComponent extends Component {
 
 //debugger
 
-console.log(options)
+//console.log(options)
 
     return options;
   }

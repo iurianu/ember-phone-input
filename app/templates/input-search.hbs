@@ -3,6 +3,7 @@
 <h1>Phone Input with Dropdown for Countries</h1>
 
 <blockquote>
+           
     The dropdown takes its values from the options variable defined in this.the controller.<br>
 </blockquote>
 
@@ -11,17 +12,10 @@
 <fieldset class="phone-input">
 
     <fieldset id="input-number">
-        <Input 
-            id="in-phone"
-            @type="text" 
-            @value={{this.selectedOption}}
-            disabled 
-            placeholder="🇬🇧 +44"
-        />
-        <Input
-            id="in-number"
-            @type="tel"
-        />
+        <Input id="in-phone" @type="hidden" @value={{this.selectedOption}} onchange={{get this.selectedItem}}/>
+        <Input @type="text" @value={{this.selectedItem.icon}} />
+        <Input @type="text" @value={{this.selectedItem.prefix}} />
+        <Input @type="tel" placeholder='to add the pattern' />
     </fieldset>
 
     <br>
