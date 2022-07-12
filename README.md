@@ -15,11 +15,12 @@ This README outlines the details of collaborating on this Ember application.
 
 ## Description
 
-The app contains 3 functions, provided on 3 different pages:
+The app contains 4 functions, provided on 3 different pages:
 
 * `Phone Input`, which is an input with the option to select countries from a dropdown (select+options)
 * `Search Input with Autocomplete`, which makes a query on existent github repos
 * `Phone Input with Search`, which is an input of type `tel`, with options to search for a country, and dynamically update the prefix
+* `Phone Number Format Validation` which is an input that fixes the number format after a predefined pattern
 
 ## Tech Stack
 
