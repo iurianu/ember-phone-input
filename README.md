@@ -31,4 +31,5 @@ The app contains 3 functions, provided on 3 different pages:
 ## Deployment
 
 > The app is deployed, in development mode, on [Netlify](https://iurianu-ember-phone-input.netlify.app/).
+
 > The code is public, and can be freely checked on [Github](https://github.com/iurianu/ember-phone-input)
