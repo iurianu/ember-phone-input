@@ -9,6 +9,7 @@
 
 <br/>
 <fieldset>
+    {{!-- template-lint-disable no-action --}}
     <select onchange={{action (mut this.selectedOption) value='target.value'}} id="countries">
         {{#each this.options as |item|}}
             <option data-item-code={{item.code}} value='{{item.prefix}}' selected={{item.selected}}>

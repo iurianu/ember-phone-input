@@ -1,6 +1,7 @@
 //import Ember from 'ember'
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 export default class InputSearchController extends Controller {
   options = [
     {
@@ -36,6 +37,18 @@ export default class InputSearchController extends Controller {
   @tracked options = [];
 
   @tracked selectedOption;
+
+  @action
+  async clearDetails() {
+    const list = document.querySelector('#country-list'),
+      searchinput = document.querySelector('#search');
+
+    if (list.hasAttribute('open')) {
+      list.removeAttribute('open');
+    }
+
+    //searchinput.value = ''
+  }
 
   get selectedItem() {
     let selectItem = this.options.find((i) => i.code === this.selectedOption);

@@ -13,4 +13,5 @@ Router.map(function () {
   this.route('autocomplete');
   this.route('phone-validation');
   this.route('about');
+  this.route('complete-phone-form');
 });

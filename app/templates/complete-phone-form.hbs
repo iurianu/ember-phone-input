@@ -1,14 +1,13 @@
-{{page-title "InputSearch"}}
-
-<h1>Phone Input with Dropdown for Countries</h1>
-
+{{page-title "CompletePhoneForm"}}
+<h1>Phone Input with Search, and Validation</h1>
+<br>
 <blockquote>
-           
     The dropdown takes its values from the options variable defined in the controller.<br>
+    The validation is made after loading the data, considering the defined pattern for each country.
 </blockquote>
 
 <br>
-
+<form>
 <fieldset class="phone-input">
 
     <Input id="in-phone" @type="hidden" @value={{this.selectedOption}} onchange={{get this.selectedItem}}/>
@@ -37,6 +36,15 @@
     {{!-- template-lint-disable require-input-label --}}
     <Input @value={{this.selectedItem.icon}} placeholder="🇧🇪" />
     <Input @type="text" @value={{this.selectedItem.prefix}} placeholder="+32" />
-    <Input @type="tel" placeholder={{this.selectedItem.pattern}} />
+
+    <Input id="number-input" @type="tel" 
+        maxlength={{this.selectedItem.placeholder.length}} 
+        pattern={{this.selectedItem.pattern}}
+        placeholder={{this.selectedItem.placeholder}} 
+        {{on 'keyup' this.validateNumber}} 
+    />
+
+    <button type="submit">submit</button>
 
 </fieldset>
+</form>
