@@ -9,7 +9,7 @@
 
 <br/>
 <fieldset>
-    <select {{on 'change' (mut this.selectedOption) value='target.value'}} id="countries">
+    <select onchange={{action (mut this.selectedOption) value='target.value'}} id="countries">
         {{#each this.options as |item|}}
             <option data-item-code={{item.code}} value='{{item.prefix}}' selected={{item.selected}}>
                 <span class="icon">{{item.icon}}</span>
