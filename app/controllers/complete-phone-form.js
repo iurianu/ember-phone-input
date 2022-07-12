@@ -47,13 +47,13 @@ export default class CompletePhoneFormController extends Controller {
       @action
       async clearDetails() {
         const list = document.querySelector('#country-list'),
-          searchinput = document.querySelector('#search');
+            number = document.querySelector('#number-input');
     
         if (list.hasAttribute('open')) {
           list.removeAttribute('open');
         }
     
-        //searchinput.value = ''
+        number.value = ''
       }
 
       @action

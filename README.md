@@ -21,6 +21,7 @@ The app contains 4 functions, provided on 3 different pages:
 * `Search Input with Autocomplete`, which makes a query on existent github repos
 * `Phone Input with Search`, which is an input of type `tel`, with options to search for a country, and dynamically update the prefix
 * `Phone Number Format Validation` which is an input that fixes the number format after a predefined pattern
+* `Complete Phone Form` with search for countries, custom pattern for each country, and validation
 
 ## Tech Stack
 
