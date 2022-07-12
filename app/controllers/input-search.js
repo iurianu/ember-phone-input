@@ -1,9 +1,6 @@
 //import Ember from 'ember'
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
-
-function setPattern() {}
-
 export default class InputSearchController extends Controller {
   options = [
     {

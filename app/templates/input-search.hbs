@@ -11,31 +11,25 @@
 
 <fieldset class="phone-input">
 
-    <fieldset id="input-number">
-        <Input id="in-phone" @type="hidden" @value={{this.selectedOption}} onchange={{get this.selectedItem}}/>
-        <Input @type="text" @value={{this.selectedItem.icon}} />
-        <Input @type="text" @value={{this.selectedItem.prefix}} />
-        <Input @type="tel" placeholder={{this.selectedItem.pattern}} @value={{this.setPattern}} />
-    </fieldset>
+    <Input id="in-phone" @type="hidden" @value={{this.selectedOption}} onchange={{get this.selectedItem}}/>
 
-    <br>
+    <details title="Click to Select Country!">
+        <summary>    
+        </summary>
+        {{!-- template-lint-disable no-nested-interactive --}}
+        <label for="search">🔍</label>
+        <Input id="search" @value={{this.query}} placeholder="Search For Your Country!" />
+        <datalist role="search" class="results" onclick={{action (mut this.selectedOption) value='target.value'}}>
+            <AutocompleteInput @options={{this.options}} @query={{this.query}} as |items|>
+                {{#each items as |item|}}
+                    <Option @item={{item}} />
+                {{/each}}
+            </AutocompleteInput>
+        </datalist>        
+    </details>
 
-    <Input 
-        @value={{this.query}} 
-        class="light" 
-        id="search" 
-        @type="text" 
-        placeholder="Search Your Country!" 
-    />
-
-    <br>
-
-    <datalist role="search" class="results" onclick={{action (mut this.selectedOption) value='target.value'}}>
-       <AutocompleteInput @options={{this.options}} @query={{this.query}} as |items|>
-            {{#each items as |item|}}
-                <Option @item={{item}} />
-            {{/each}}
-        </AutocompleteInput>
-    </datalist>
+    <Input @value={{this.selectedItem.icon}} placeholder="🇧🇪" />
+    <Input @type="text" @value={{this.selectedItem.prefix}} placeholder="+32" />
+    <Input @type="tel" placeholder={{this.selectedItem.pattern}} />
 
 </fieldset>

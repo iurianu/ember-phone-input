@@ -3,8 +3,8 @@ import Component from '@glimmer/component';
 export default class SidebarComponent extends Component {
   links = [
     {
-      name: 'Phone Input Format Validation',
-      route: 'autocomplete',
+      name: 'Phone Input with Search',
+      route: 'input-search',
     },
     {
       name: 'Phone Input with Select',
@@ -12,11 +12,11 @@ export default class SidebarComponent extends Component {
     },
     {
       name: 'Input with Autocomplete',
-      route: 'phone-validation',
+      route: 'autocomplete',
     },
     {
-      name: 'Phone Input with Search',
-      route: 'input-search',
+      name: 'Phone Input Format Validation',
+      route: 'phone-validation',
     },
   ];
 }
