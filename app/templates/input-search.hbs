@@ -15,7 +15,7 @@
         <Input id="in-phone" @type="hidden" @value={{this.selectedOption}} onchange={{get this.selectedItem}}/>
         <Input @type="text" @value={{this.selectedItem.icon}} />
         <Input @type="text" @value={{this.selectedItem.prefix}} />
-        <Input @type="tel" placeholder='to add the pattern' />
+        <Input @type="tel" placeholder={{this.selectedItem.pattern}} @value={{this.setPattern}} />
     </fieldset>
 
     <br>
@@ -30,10 +30,7 @@
 
     <br>
 
-    <datalist 
-        class="results" 
-        onclick={{action (mut this.selectedOption) value='target.value'}}
-    >
+    <datalist role="search" class="results" onclick={{action (mut this.selectedOption) value='target.value'}}>
        <AutocompleteInput @options={{this.options}} @query={{this.query}} as |items|>
             {{#each items as |item|}}
                 <Option @item={{item}} />

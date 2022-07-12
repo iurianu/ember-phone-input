@@ -1,0 +1,9 @@
+{{page-title "PhoneValidation"}}
+<label for="tel">Telephone</label>
+<Input 
+    @type="tel" 
+    id="telle" 
+    maxlength="12" 
+    placeholder='___-___-____'
+    {{on 'keyup' this.validateNumber}}
+/>

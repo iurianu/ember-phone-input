@@ -1,0 +1,14 @@
+<div class="au-c-sidebar__content">
+    <nav>
+        <ul class="au-c-list-navigation au-u-flex--column">
+            {{#each this.links as |link|}}
+                <li class="au-c-list-navigation__item">
+                    <AuNavigationLink @route={{link.route}}>
+                        <AuIcon @icon="documents" @alignment="left" />
+                        {{link.name}}
+                    </AuNavigationLink>
+                </li>
+            {{/each}}
+        </ul>
+    </nav>
+</div>

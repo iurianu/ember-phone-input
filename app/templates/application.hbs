@@ -1,11 +1,21 @@
 {{page-title "PhoneTest"}}
+<AuApp>
+    <Header />
 
-<Header />
+    <AuMainContainer as |m|>
+        <m.sidebar>
+            <div class="au-c-sidebar">
+                <Sidebar />
+            </div>
+        </m.sidebar>
 
-    <main id="content">
+        <m.content @scroll={{true}}>
+            <div class="au-d-component-block au-d-component-block--overflow">
+                {{outlet}}
+            </div>
+        </m.content>
 
-        {{outlet}}
+    </AuMainContainer>
 
-    </main>
-
-<Footer />
+    <Footer />
+</AuApp>

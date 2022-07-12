@@ -1,11 +1,11 @@
 {
   "name": "phone-test",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "description": "Small description for phone-test goes here",
-  "repository": "",
+  "repository": "https://github.com/iurianu/ember-phone-input",
   "license": "MIT",
-  "author": "",
+  "author": "Iulian Andriescu",
   "directories": {
     "doc": "doc",
     "test": "tests"

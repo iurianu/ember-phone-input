@@ -2,62 +2,47 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 
-function setPattern() {
-  
-}
+function setPattern() {}
 
 export default class InputSearchController extends Controller {
-
   options = [
     {
-      code: 'us',
-      country: 'United States',
-      prefix: '+1',
-      icon: '🇺🇸',
+      code: 'be',
+      country: 'Belgium',
+      prefix: '+32',
+      icon: '🇧🇪',
+      pattern: '___-___-___',
     },
     {
-      code: 'uk',
-      country: 'United Kingdom',
-      prefix: '+44',
-      icon: '🇬🇧',
+      code: 'nl',
+      country: 'Netherlands',
+      prefix: '+31',
+      icon: '🇳🇱',
+      pattern: '___-___-___',
     },
     {
       code: 'ro',
       country: 'Romania',
       prefix: '+40',
       icon: '🇷🇴',
-    }, 
+      pattern: '___-___-___',
+    },
     {
-      code: 'be',
-      country: "Belgium",
-      prefix: '+32',
-      icon: '🇧🇪',
-    }
+      code: 'uk',
+      country: 'United Kingdom',
+      prefix: '+44',
+      icon: '🇬🇧',
+      pattern: '____-___-___',
+    },
   ];
 
+  @tracked options = [];
 
-  @tracked options = []
-
-  @tracked selectedOption
+  @tracked selectedOption;
 
   get selectedItem() {
+    let selectItem = this.options.find((i) => i.code === this.selectedOption);
 
-    //debugger
-    const loadOptions = this.options
-
-    console.log('options: ', loadOptions)
-    console.log('typeof options: ', typeof loadOptions)
-
-    const selected = this.selectedOption
-
-    console.log('selected option: ', selected)
-
-    let selectItem = loadOptions.find(i => i.code === this.selectedOption);
-
-    console.log('selected item: ', selectItem)
-
-    return selectItem
-
+    return selectItem;
   }
-  
 }
