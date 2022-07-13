@@ -72,12 +72,15 @@ fieldset {
         &:not(.results) {
             position: absolute;
             width: 40px;
-            height: 20px;
+            height: 36px;
             top: 0;
             left: 0;
             span.prefix {
                 position: absolute;
                 left: 40px;
+            }
+            option {
+                height: 36px;
             }
         } 
     }
@@ -99,35 +102,41 @@ fieldset {
         &[type=tel] {
             padding-left: 40px;
         }
+        &#search {
+            max-width: min-content;
+        }
     }
     &.phone-input {
         input {
             &[type=tel] {
-                padding: 0;
+                letter-spacing: .35ex;
+                padding-left: 2rem;
             }
         }
         details {
             display: inline;
             width: 1.5rem;
+            margin-top: 1.5rem;
+            margin-left: 1rem;
             cursor: pointer;
             &[open] {
                 position: absolute;
                 summary {
                     ::marker {
                         position: absolute;
-                        top: -2.5rem;
+                        top: -1.5rem;
                         left: -1.5rem;
                     }
                 }
                 + input {
-                    margin-left: 1.5rem;
+                    margin-left: 2.5rem;
                 }
             }
             label {
                 &[for='search'] {
                     position: absolute;
-                    left: .25rem;
-                    top: 2.75rem;
+                    left: .75rem;
+                    top: 3.25rem;
                     z-index: 234;
                     font-size: 75%;
                     opacity: .75;
@@ -136,7 +145,7 @@ fieldset {
             input {
                 &#search {
                     position: relative;
-                    padding-left: 1.5rem;
+                    padding-left: 2.5rem;
                     z-index: 233;
                 }
             }

@@ -15,7 +15,7 @@ This README outlines the details of collaborating on this Ember application.
 
 ## Description
 
-The app contains 4 functions, provided on 3 different pages:
+The app contains 5 functionalities, provided on 5 different pages:
 
 * `Phone Input`, which is an input with the option to select countries from a dropdown (select+options)
 * `Search Input with Autocomplete`, which makes a query on existent github repos

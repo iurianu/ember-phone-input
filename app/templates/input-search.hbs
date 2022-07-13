@@ -18,7 +18,7 @@
         </summary>
         {{!-- template-lint-disable no-nested-interactive --}}
         <label for="search">🔍</label>
-        <Input id="search" @value={{this.query}} placeholder="Search For Your Country!"  />
+        <AuInput @type="text" id="search" @value={{this.query}} placeholder="Search For Your Country!"  />
         {{!-- template-lint-disable no-action --}}
         {{!-- template-lint-disable no-invalid-interactive --}}
         <datalist 
@@ -35,8 +35,8 @@
     </details>
 
     {{!-- template-lint-disable require-input-label --}}
-    <Input @value={{this.selectedItem.icon}} placeholder="🇧🇪" />
-    <Input @type="text" @value={{this.selectedItem.prefix}} placeholder="+32" />
-    <Input @type="tel" placeholder={{this.selectedItem.pattern}} />
+    <AuInput @value={{this.selectedItem.icon}} placeholder="🇧🇪" />
+    <AuInput @type="text" @value={{this.selectedItem.prefix}} placeholder="+32" />
+    <AuInput @type="tel" placeholder={{this.selectedItem.pattern}} />
 
 </fieldset>
