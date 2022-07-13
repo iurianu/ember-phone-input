@@ -57,24 +57,48 @@ export default class AuPhoneController extends Controller {
     }
 
     @action
-    async validateNumber(e) {
-      const phone = document.querySelector('#number-input'),
-        pattern = phone.placeholder;
+    async validateNumber() {
+      const input = document.querySelector('#number-input')
+
+      let option = this.options.find((i) => i.code === this.selectedOption),
+         pattern = option.pattern
+
+      let firstMatch = pattern.match(/\{(.*?)\}/)[1],
+          firstIndex = pattern.indexOf(firstMatch),  
+         secondMatch = pattern.slice(firstIndex + 3).match(/\{(.*?)\}/)[1],
+         secondIndex = pattern.slice(firstIndex + 3).indexOf(secondMatch),
+          thirdMatch = pattern.slice(firstIndex + 3).slice(secondIndex + 3).match(/\{(.*?)\}/)[1]
+
+      let set = '', firstSet = '', secondSet = '', thirdSet = ''
   
-      let firstIndex = pattern.indexOf('-'),
-        nextIndex = pattern.indexOf('-', firstIndex + 1);
+      while (firstSet.length < parseInt(firstMatch)) {firstSet += '_'}
+      while (secondSet.length < parseInt(secondMatch)) {secondSet += '_'}
+      while (thirdSet.length < parseInt(thirdMatch)) {thirdSet += '_'}
   
-      if (
-        e.key != 'Backspace' &&
-        (phone.value.length === firstIndex || phone.value.length === nextIndex)
-      ) {
-        phone.value += '-';
-      }
+      set = set.concat(firstSet + '-' + secondSet + '-' + thirdSet)
+
+      input.setAttribute('placeholder', set)
+      input.setAttribute('maxlength', set.length)
+
+      const firstSplit = parseInt(firstMatch),
+           secondSplit = parseInt(firstMatch) + parseInt(secondMatch) + 1
+
+      input.addEventListener('keyup', function(e) {
+          console.log('input value: ', input.value)
+    
+          if (e.key != 'Backspace' &&  (input.value.length === firstSplit || input.value.length === secondSplit)) {
+                input.value += '-';
+            }
+      })
     }
   
     get selectedItem() {
+
       let selectItem = this.options.find((i) => i.code === this.selectedOption);
-  
+
+      this.validateNumber()
+
       return selectItem;
+
     }
 }

@@ -43,10 +43,8 @@
         <AuInput @type="text" @value={{this.selectedItem.prefix}} placeholder="+32" />
 
         <AuInput id="number-input" @type="tel" 
-            maxlength={{this.selectedItem.placeholder.length}} 
             pattern={{this.selectedItem.pattern}}
-            placeholder={{this.selectedItem.placeholder}}
-            {{on 'keyup' this.validateNumber}} 
+            placeholder="Insert Your Number!"
         />
 
     </f.content>
