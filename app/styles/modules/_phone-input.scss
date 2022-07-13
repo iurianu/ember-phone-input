@@ -1,0 +1,19 @@
+
+.au-c-fieldset__content {
+    > select {
+        &:not(.results) {
+            position: absolute;
+            width: 40px;
+            height: 36px;
+            top: 0;
+            left: 0;
+            span.prefix {
+                position: absolute;
+                left: 40px;
+            }
+            option {
+                height: 36px;
+            }
+        } 
+    }
+}

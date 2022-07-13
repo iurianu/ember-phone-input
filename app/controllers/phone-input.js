@@ -9,7 +9,6 @@ export default class PhoneInputController extends Controller {
       prefix: '+1',
       icon: '🇺🇸',
       pattern: '(___) ___-____',
-      selected: 'selected',
     },
     {
       country: 'United Kingdom',
@@ -17,7 +16,6 @@ export default class PhoneInputController extends Controller {
       prefix: '+44',
       icon: '🇬🇧',
       pattern: '_____ ______',
-      selected: 'false',
     },
     {
       country: 'Romania',
@@ -25,7 +23,6 @@ export default class PhoneInputController extends Controller {
       prefix: '+40',
       icon: '🇷🇴',
       pattern: '____ ___ ___',
-      selected: 'false',
     },
   ];
 

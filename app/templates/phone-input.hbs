@@ -7,22 +7,28 @@
 </blockquote>
 
 <br/>
-<fieldset>
-    {{!-- template-lint-disable no-action --}}
-    <select onchange={{action (mut this.selectedOption) value='target.value'}} id="countries">
-        {{#each this.options as |item|}}
-            <option data-item-code={{item.code}} value='{{item.prefix}}' selected={{item.selected}}>
-                <span class="icon">{{item.icon}}</span>
-                <span class="country">{{item.country}}</span>            
-                <span class="prefix">( {{item.prefix}} )</span>
-            </option>
-        {{/each}}
-    </select>
 
-    <AuInput 
-        id="phone"
-        @type="tel" 
-        @value={{this.selectedOption}}
-    />
+<AuFieldset
+    @alignment={{this.alignment}}
+    as |f|
+>
+    <f.content>
+        {{!-- template-lint-disable no-action --}}
+        <select onchange={{action (mut this.selectedOption) value='target.value'}} id="countries">
+            {{#each this.options as |item|}}
+                <option data-item-code={{item.code}} value='{{item.prefix}}' selected={{item.selected}}>
+                    <span class="icon">{{item.icon}}</span>
+                    <span class="country">{{item.country}}</span>            
+                    <span class="prefix">( {{item.prefix}} )</span>
+                </option>
+            {{/each}}
+        </select>
 
-</fieldset>
+        <AuInput 
+            id="phone"
+            @type="tel" 
+            @value={{this.selectedOption}}
+        />
+
+    </f.content>
+</AuFieldset>

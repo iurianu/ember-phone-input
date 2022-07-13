@@ -1,38 +1,6 @@
-@import "ember-appuniversum";
-
-@import './settings/default';
-@import './settings/header';
-
-@import './modules/phone-validation';
-@import './modules/autocomplete';
-@import './modules/phone-input';
-@import './modules/input-search';
-@import './modules/complete-form';
-
-fieldset {
-    &#input-number {
-        display: flex;
-        input {
-            &#in-phone {
-                width: 5.5rem;
-                padding: 0 .25rem;
-                text-align: right;
-            }
-            &#in-number {
-                border-width: 1px;
-                border-left-width: 0;
-            }
-        }
-    }
-    input {
-        &[type=tel] {
-            padding-left: 40px;
-        }
-        &#search {
-            max-width: min-content;
-        }
-    }
-    .phone-input {
+.phone-input {
+    .au-c-fieldset__content {
+        flex-direction: row;
         input {
             &[type=tel] {
                 letter-spacing: .25ch;
@@ -41,7 +9,7 @@ fieldset {
         }
         details {
             display: inline;
-            width: 1.5rem;
+            width: .5rem;
             margin-top: 1.5rem;
             margin-left: 1rem;
             cursor: pointer;
@@ -55,7 +23,7 @@ fieldset {
                     }
                 }
                 + input {
-                    margin-left: 2.5rem;
+                    margin-left: 3rem;
                 }
             }
             label {
@@ -75,12 +43,6 @@ fieldset {
                     z-index: 233;
                 }
             }
-        }
-    }
-    datalist {
-        display: block;
-        option {
-            cursor: pointer;
         }
     }
 }

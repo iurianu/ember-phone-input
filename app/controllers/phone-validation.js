@@ -6,13 +6,11 @@ export default class PhoneValidationController extends Controller {
   async validateNumber(e) {
     const tele = document.querySelector('#telle');
 
-    console.log('tele: ', tele.placeholder);
-
     if (
       e.key != 'Backspace' &&
       (tele.value.length === 3 || tele.value.length === 7)
     ) {
-      tele.value += ' ';
+      tele.value += '-';
     }
   }
 }

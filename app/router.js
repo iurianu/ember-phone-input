@@ -14,4 +14,5 @@ Router.map(function () {
   this.route('phone-validation');
   this.route('about');
   this.route('complete-phone-form');
+  this.route('au-phone');
 });

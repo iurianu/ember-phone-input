@@ -1,14 +1,12 @@
-{{page-title "InputSearch"}}
-
-<h1>Phone Input with Dropdown for Countries</h1>
-
+{{page-title "AuPhone"}}
+<h1>Phone Input with Search, and Validation, Built as an AU Component</h1>
+<br>
 <blockquote>
-           
     The dropdown takes its values from the options variable defined in the controller.<br>
+    The validation is made after loading the data, considering the defined pattern for each country.
 </blockquote>
 
 <br>
-
 <AuFieldset
     class="phone-input"
     @alignment={{this.alignment}}
@@ -16,15 +14,15 @@
 >
 
     <f.content>
+
         <Input id="in-phone" @type="hidden" @value={{this.selectedOption}} onchange={{get this.selectedItem}}/>
 
         <details title="Click to Select Country!" id="country-list">
-            <summary></summary>
+            <summary>    
+            </summary>
             {{!-- template-lint-disable no-nested-interactive --}}
-            
             <label for="search">🔍</label>
-            <AuInput @type="text" id="search" @value={{this.query}} placeholder="Search For Your Country!"  />
-
+            <AuInput id="search" @value={{this.query}} placeholder="Search For Your Country!"  />
             {{!-- template-lint-disable no-action --}}
             {{!-- template-lint-disable no-invalid-interactive --}}
             <datalist 
@@ -43,7 +41,13 @@
         {{!-- template-lint-disable require-input-label --}}
         <AuInput @value={{this.selectedItem.icon}} placeholder="🇧🇪" />
         <AuInput @type="text" @value={{this.selectedItem.prefix}} placeholder="+32" />
-        <AuInput @type="tel" placeholder={{this.selectedItem.pattern}} />
+
+        <AuInput id="number-input" @type="tel" 
+            maxlength={{this.selectedItem.placeholder.length}} 
+            pattern={{this.selectedItem.pattern}}
+            placeholder={{this.selectedItem.placeholder}}
+            {{on 'keyup' this.validateNumber}} 
+        />
 
     </f.content>
 </AuFieldset>

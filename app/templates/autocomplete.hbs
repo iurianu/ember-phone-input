@@ -1,15 +1,20 @@
 {{page-title "Autocomplete"}}
+<AuFieldset
+    @alignment={{this.alignment}}
+    as |f|
+>
+    <f.content>
+      <AuLabel for="search-input">
+        Search GitHub Repositories
+      </AuLabel>
 
-<AuLabel for="search-input">
-  Search GitHub Repositories
-</AuLabel>
-<br>
-<br>
-<Autocomplete
-  id="search-input"
-  placeholder="Example: ember"
-  @value={{this.repo}}
-  @onInput={{this.setRepo}}
-  @search={{this.searchRepos}}
-  @options={{this.repos}}
-/>
+      <Autocomplete
+        id="search-input"
+        placeholder="Example: ember"
+        @value={{this.repo}}
+        @onInput={{this.setRepo}}
+        @search={{this.searchRepos}}
+        @options={{this.repos}}
+      />
+  </f.content>
+</AuFieldset>
