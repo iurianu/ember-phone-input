@@ -9,32 +9,28 @@ export default class AuPhoneController extends Controller {
           country: 'Belgium',
           prefix: '+32',
           icon: '🇧🇪',
-          pattern: '[0-9]{3}-[0-9]{3}-[0-9]{3}',
-          placeholder: '___-___-___',
+          pattern: '[0-9]{3}-[0-9]{3}-[0-9]{3}'
         },
         {
           code: 'nl',
           country: 'Netherlands',
           prefix: '+31',
           icon: '🇳🇱',
-          pattern: '[0-9]{3}-[0-9]{3}-[0-9]{3}',
-          placeholder: '___-___-___',
+          pattern: '[0-9]{3}-[0-9]{3}-[0-9]{3}'
         },
         {
           code: 'ro',
           country: 'Romania',
           prefix: '+40',
           icon: '🇷🇴',
-          pattern: '[0-9]{3}-[0-9]{3}-[0-9]{3}',
-          placeholder: '___-___-___',
+          pattern: '[0-9]{3}-[0-9]{3}-[0-9]{3}'
         },
         {
           code: 'uk',
           country: 'United Kingdom',
           prefix: '+44',
           icon: '🇬🇧',
-          pattern: '[0-9]{4}-[0-9]{3}-[0-9]{3}',
-          placeholder: '____-___-___',
+          pattern: '[0-9]{4}-[0-9]{3}-[0-9]{3}'
         },
     ];
 
