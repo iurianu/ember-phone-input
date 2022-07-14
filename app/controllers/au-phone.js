@@ -54,7 +54,8 @@ export default class AuPhoneController extends Controller {
 
     @action
     async validateNumber() {
-      const input = document.querySelector('#au-number-input')
+      const input = document.querySelector('#au-number-input'),
+           banner = document.querySelectorAll('.fake-placeholder')[0]
 
       let option = this.options.find((i) => i.code === this.selectedOption),
          pattern = option.pattern
@@ -75,6 +76,7 @@ export default class AuPhoneController extends Controller {
 
       input.setAttribute('placeholder', set)
       input.setAttribute('maxlength', set.length)
+      banner.removeAttribute('class', 'fake-placeholder')
 
       input.addEventListener('keyup', function(e) {
 

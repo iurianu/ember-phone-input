@@ -11,6 +11,15 @@
                 width: 4rem;
                 padding-left: .5rem;
                 line-height: 3.5rem;
+
+            }
+            &.fake-placeholder {
+                position: relative;
+                &:after {
+                    position: absolute;
+                    content: '🇧🇪';
+                    left: 0.5rem;
+                }
             }
         }
         input {
@@ -36,6 +45,13 @@
             width: .5rem;
             margin-left: 2.5rem;
             cursor: pointer;
+            &:after {
+                position: absolute;
+                top: -2.5rem;
+                z-index: 666;
+                content: ">";
+                display: none;
+            }
             &[open] {
                 margin-top: 3.5rem;
                 margin-left: -2px;
@@ -43,12 +59,15 @@
                 width: calc(100% + 4px);
                 padding: .25rem;
                 summary {
+                    display: block;
                     position: absolute;
                     top: -1rem;
                     &::marker {
                         position: absolute;
                         top: -2.5rem;
                         left: -1.5rem;
+                        display: block;
+                        content: '>'
                     }
                 }
                 + input {

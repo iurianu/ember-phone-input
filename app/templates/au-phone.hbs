@@ -18,7 +18,7 @@
         <Input id="in-phone" @type="hidden" @value={{this.selectedOption}} onchange={{get this.selectedItem}}/>
 
         {{!-- template-lint-disable require-input-label --}}
-        <label for="au-phone-prefix">{{this.selectedItem.icon}}</label>
+        <label for="au-phone-prefix" class="fake-placeholder">{{this.selectedItem.icon}}</label>
         <AuInput id="au-phone-prefix" @type="text" @value={{this.selectedItem.prefix}} placeholder="+32" disabled />
 
         <AuInput id="au-number-input" @type="tel" 
