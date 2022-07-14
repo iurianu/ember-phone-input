@@ -4,6 +4,7 @@
         position: relative;
         @extend .au-u-flex--row;
         @extend .au-c-input;
+        width: 325px;
         padding: 0;
         gap: 0;
         label {
@@ -82,7 +83,7 @@
                 option {
                     padding-left: 0;
                     height: 4.5ex;
-                    line-height: 2ex;
+                    line-height: 4.5ex;
                     padding: 1.25ex 1ch;
                     border-radius: .5rem;
                     &:hover {
@@ -102,7 +103,7 @@
             }
             input {
                 &#au-phone-search {
-                    width: 100% !important;
+                    width: calc(100% - 25px) !important;
                     position: relative;
                     padding-left: 2.5rem !important;
                     z-index: 233;

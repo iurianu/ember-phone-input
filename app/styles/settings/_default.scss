@@ -51,6 +51,10 @@ h1 {
     font-size: 2rem;
 }
 
+ul, ol {
+    list-style: none !important;
+}
+
 fieldset {
     &.au-c-fieldset {
         position: relative;
