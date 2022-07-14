@@ -1,0 +1,98 @@
+.au-phone-input {    
+    width: 100%;
+    .au-c-fieldset__content {
+        position: relative;
+        @extend .au-u-flex--row;
+        @extend .au-c-input;
+        padding: 0;
+        gap: 0;
+        label {
+            &[for='au-phone-prefix'] {
+                width: 4rem;
+                padding-left: .5rem;
+                line-height: 3.5rem;
+            }
+        }
+        input {
+            &[type=tel], &[type=text] {
+                border: none !important;
+                max-height: 100%;
+                padding: 0 !important;
+                letter-spacing: .25ch;
+                padding-left: 2rem;
+                &:focus, &:focus-visible {
+                    outline: none;
+                    box-shadow: none !important;
+                }
+            }
+            &#au-phone-prefix {
+                width: 6ch;
+            }
+        }
+        details {
+            position: absolute;
+            margin-top: 0.5rem;
+            display: inline;
+            width: .5rem;
+            margin-left: 2.5rem;
+            cursor: pointer;
+            &[open] {
+                margin-top: 3.5rem;
+                margin-left: -2px;
+                position: absolute;
+                width: calc(100% + 4px);
+                padding: .25rem;
+                summary {
+                    position: absolute;
+                    top: -1rem;
+                    &::marker {
+                        position: absolute;
+                        top: -2.5rem;
+                        left: -1.5rem;
+                    }
+                }
+                + input {
+                    margin-left: 3rem;
+                }
+                datalist {
+                    background-color: lightgrey;
+                    border-bottom-left-radius: .5rem;
+                    border-bottom-right-radius: .5rem;
+                    padding: .5rem;
+                }
+                optgroup {
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+                option {
+                    padding-left: 0;
+                    &:hover {
+                        background-color: lightblue;
+                    }
+                }
+            }
+            label {
+                &[for='au-phone-search'] {
+                    position: absolute;
+                    left: .75rem;
+                    top: 1.25rem;
+                    z-index: 234;
+                    font-size: 75%;
+                    opacity: .75;
+                }
+            }
+            input {
+                &#au-phone-search {
+                    width: 100% !important;
+                    position: relative;
+                    padding-left: 2.5rem !important;
+                    z-index: 233;
+                    border: 1px outset lightgray !important;
+                    margin-bottom: .125rem;
+                }
+            }
+        }
+    }
+}
+

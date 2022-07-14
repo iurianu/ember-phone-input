@@ -55,7 +55,10 @@ fieldset {
     &.au-c-fieldset {
         position: relative;
         max-width: fit-content;
-        flex-wrap: wrap;
+        @extend .au-u-flex--wrap;
         place-content: baseline;
+        datalist {
+            display: block;
+        }
     }
 }

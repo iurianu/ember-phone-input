@@ -8,7 +8,7 @@
 
 <br>
 <AuFieldset
-    class="phone-input"
+    class="au-phone-input"
     @alignment={{this.alignment}}
     as |f|
 >
@@ -17,35 +17,35 @@
 
         <Input id="in-phone" @type="hidden" @value={{this.selectedOption}} onchange={{get this.selectedItem}}/>
 
-        <details title="Click to Select Country!" id="country-list">
-            <summary>    
-            </summary>
+        {{!-- template-lint-disable require-input-label --}}
+        <label for="au-phone-prefix">{{this.selectedItem.icon}}</label>
+        <AuInput id="au-phone-prefix" @type="text" @value={{this.selectedItem.prefix}} placeholder="+32" disabled />
+
+        <AuInput id="au-number-input" @type="tel" 
+            pattern={{this.selectedItem.pattern}}
+            placeholder="Insert Your Number!"
+        />
+
+        <details title="Click to Select Country!" id="country-list" >
+            <summary></summary>
             {{!-- template-lint-disable no-nested-interactive --}}
-            <label for="search">🔍</label>
-            <AuInput id="search" @value={{this.query}} placeholder="Search For Your Country!"  />
+            <label for="au-phone-search">🔍</label>
+            <AuInput id="au-phone-search" @value={{this.query}} placeholder="Search For Your Country!"  />
             {{!-- template-lint-disable no-action --}}
             {{!-- template-lint-disable no-invalid-interactive --}}
             <datalist 
                 role="search" class="results" 
-                onclick={{action (mut this.selectedOption) value='target.value'}}
-                {{on 'click' this.clearDetails}}
+                onclick={{action (mut this.selectedOption) value='target.value'}}                
             >
-                <AutocompleteInput @options={{this.options}} @query={{this.query}} as |items|>
-                    {{#each items as |item|}}
-                        <Option @item={{item}} />
-                    {{/each}}
-                </AutocompleteInput>
-            </datalist>        
+                <optgroup {{on 'click' this.clearDetails}}>
+                    <AutocompleteInput @options={{this.options}} @query={{this.query}} as |items|>
+                        {{#each items as |item|}}
+                            <Option @item={{item}} />
+                        {{/each}}
+                    </AutocompleteInput>
+                </optgroup>
+            </datalist>      
         </details>
-
-        {{!-- template-lint-disable require-input-label --}}
-        <AuInput @value={{this.selectedItem.icon}} placeholder="🇧🇪" />
-        <AuInput @type="text" @value={{this.selectedItem.prefix}} placeholder="+32" />
-
-        <AuInput id="number-input" @type="tel" 
-            pattern={{this.selectedItem.pattern}}
-            placeholder="Insert Your Number!"
-        />
 
     </f.content>
 </AuFieldset>

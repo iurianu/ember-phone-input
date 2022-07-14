@@ -43,18 +43,18 @@ export default class AuPhoneController extends Controller {
     @action
     async clearDetails() {
         const list = document.querySelector('#country-list'),
-          number = document.querySelector('#number-input');
+          input = document.querySelector('#au-number-input');
     
         if (list.hasAttribute('open')) {
           list.removeAttribute('open');
         }
     
-        number.value = '';
+        input.value = '';
     }
 
     @action
     async validateNumber() {
-      const input = document.querySelector('#number-input')
+      const input = document.querySelector('#au-number-input')
 
       let option = this.options.find((i) => i.code === this.selectedOption),
          pattern = option.pattern
@@ -76,15 +76,14 @@ export default class AuPhoneController extends Controller {
       input.setAttribute('placeholder', set)
       input.setAttribute('maxlength', set.length)
 
-      const firstSplit = parseInt(firstMatch),
-           secondSplit = parseInt(firstMatch) + parseInt(secondMatch) + 1
-
       input.addEventListener('keyup', function(e) {
-          console.log('input value: ', input.value)
+
+        const firstSplit = parseInt(firstMatch),
+        secondSplit = parseInt(firstMatch) + parseInt(secondMatch) + 1
     
-          if (e.key != 'Backspace' &&  (input.value.length === firstSplit || input.value.length === secondSplit)) {
-                input.value += '-';
-            }
+        if (e.key != 'Backspace' &&  (input.value.length === firstSplit || input.value.length === secondSplit)) {
+          input.value += '-';
+        }
       })
     }
   
