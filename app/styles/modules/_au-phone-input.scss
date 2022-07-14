@@ -11,7 +11,6 @@
                 width: 4rem;
                 padding-left: .5rem;
                 line-height: 3.5rem;
-
             }
             &.fake-placeholder {
                 position: relative;
@@ -43,14 +42,11 @@
             margin-top: 0.5rem;
             display: inline;
             width: .5rem;
-            margin-left: 2.5rem;
+            margin-left: 2.75rem;
             cursor: pointer;
-            &:after {
-                position: absolute;
-                top: -2.5rem;
-                z-index: 666;
-                content: ">";
-                display: none;
+            summary {
+                transform: rotate(90deg);
+                margin-top: -.25rem;
             }
             &[open] {
                 margin-top: 3.5rem;
@@ -67,7 +63,6 @@
                         top: -2.5rem;
                         left: -1.5rem;
                         display: block;
-                        content: '>'
                     }
                 }
                 + input {
@@ -86,6 +81,10 @@
                 }
                 option {
                     padding-left: 0;
+                    height: 4.5ex;
+                    line-height: 2ex;
+                    padding: 1.25ex 1ch;
+                    border-radius: .5rem;
                     &:hover {
                         background-color: lightblue;
                     }
