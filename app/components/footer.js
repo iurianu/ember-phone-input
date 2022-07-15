@@ -25,7 +25,7 @@ export default class FooterComponent extends Component {
     {
       title: 'Follow me on Twitter!',
       url: 'https://twitter.com/iurianu',
-      icon: 'https://cdn-icons.flaticon.com/png/512/2168/premium/2168336.png?token=exp=1657878155~hmac=0bcf95e6a12aa9f4cdeb7be3836a414b',
+      icon: 'https://image.similarpng.com/very-thumbnail/2020/06/Black-icon-Twitter-logo-transparent-PNG.png',
     },
   ];
 }
