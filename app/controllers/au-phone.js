@@ -3,99 +3,114 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class AuPhoneController extends Controller {
-    options = [
-        {
-          code: 'be',
-          country: 'Belgium',
-          prefix: '+32',
-          icon: '🇧🇪',
-          pattern: '[0-9]{3}-[0-9]{3}-[0-9]{3}'
-        },
-        {
-          code: 'nl',
-          country: 'Netherlands',
-          prefix: '+31',
-          icon: '🇳🇱',
-          pattern: '[0-9]{3}-[0-9]{3}-[0-9]{3}'
-        },
-        {
-          code: 'ro',
-          country: 'Romania',
-          prefix: '+40',
-          icon: '🇷🇴',
-          pattern: '[0-9]{3}-[0-9]{3}-[0-9]{3}'
-        },
-        {
-          code: 'uk',
-          country: 'United Kingdom',
-          prefix: '+44',
-          icon: '🇬🇧',
-          pattern: '[0-9]{4}-[0-9]{3}-[0-9]{3}'
-        },
-    ];
+  options = [
+    {
+      code: 'be',
+      country: 'Belgium',
+      prefix: '+32',
+      icon: '🇧🇪',
+      pattern: '[0-9]{3}-[0-9]{3}-[0-9]{3}',
+    },
+    {
+      code: 'nl',
+      country: 'Netherlands',
+      prefix: '+31',
+      icon: '🇳🇱',
+      pattern: '[0-9]{3}-[0-9]{3}-[0-9]{3}',
+    },
+    {
+      code: 'ro',
+      country: 'Romania',
+      prefix: '+40',
+      icon: '🇷🇴',
+      pattern: '[0-9]{3}-[0-9]{3}-[0-9]{3}',
+    },
+    {
+      code: 'uk',
+      country: 'United Kingdom',
+      prefix: '+44',
+      icon: '🇬🇧',
+      pattern: '[0-9]{4}-[0-9]{3}-[0-9]{3}',
+    },
+  ];
 
-    @tracked
-    options = []
-  
-    @tracked
-    selectedOption;
+  @tracked
+  options = [];
 
-    @action
-    async clearDetails() {
-        const list = document.querySelector('#country-list'),
-          input = document.querySelector('#au-number-input');
-    
-        if (list.hasAttribute('open')) {
-          list.removeAttribute('open');
-        }
-    
-        input.value = '';
+  @tracked
+  selectedOption;
+
+  @action
+  async clearDetails() {
+    const list = document.querySelector('#country-list'),
+      input = document.querySelector('#au-number-input');
+
+    if (list.hasAttribute('open')) {
+      list.removeAttribute('open');
     }
 
-    @action
-    async validateNumber() {
-      const input = document.querySelector('#au-number-input'),
-           banner = document.querySelectorAll('.fake-placeholder')[0]
+    input.value = '';
+  }
 
-      let option = this.options.find((i) => i.code === this.selectedOption),
-         pattern = option.pattern
+  @action
+  async validateNumber() {
+    const input = document.querySelector('#au-number-input'),
+      banner = document.querySelectorAll('.fake-placeholder')[0];
 
-      let firstMatch = pattern.match(/\{(.*?)\}/)[1],
-          firstIndex = pattern.indexOf(firstMatch),  
-         secondMatch = pattern.slice(firstIndex + 3).match(/\{(.*?)\}/)[1],
-         secondIndex = pattern.slice(firstIndex + 3).indexOf(secondMatch),
-          thirdMatch = pattern.slice(firstIndex + 3).slice(secondIndex + 3).match(/\{(.*?)\}/)[1]
+    let option = this.options.find((i) => i.code === this.selectedOption),
+      pattern = option.pattern;
 
-      let set = '', firstSet = '', secondSet = '', thirdSet = ''
-  
-      while (firstSet.length < parseInt(firstMatch)) {firstSet += '_'}
-      while (secondSet.length < parseInt(secondMatch)) {secondSet += '_'}
-      while (thirdSet.length < parseInt(thirdMatch)) {thirdSet += '_'}
-  
-      set = set.concat(firstSet + '-' + secondSet + '-' + thirdSet)
+    let firstMatch = pattern.match(/\{(.*?)\}/)[1],
+      firstIndex = pattern.indexOf(firstMatch),
+      secondMatch = pattern.slice(firstIndex + 3).match(/\{(.*?)\}/)[1],
+      secondIndex = pattern.slice(firstIndex + 3).indexOf(secondMatch),
+      thirdMatch = pattern
+        .slice(firstIndex + 3)
+        .slice(secondIndex + 3)
+        .match(/\{(.*?)\}/)[1];
 
-      input.setAttribute('placeholder', set)
-      input.setAttribute('maxlength', set.length)
-      banner.removeAttribute('class', 'fake-placeholder')
+    let set = '',
+      firstSet = '',
+      secondSet = '',
+      thirdSet = '';
 
-      input.addEventListener('keyup', function(e) {
-
-        const firstSplit = parseInt(firstMatch),
-        secondSplit = parseInt(firstMatch) + parseInt(secondMatch) + 1
-    
-        if (e.key != 'Backspace' &&  (input.value.length === firstSplit || input.value.length === secondSplit)) {
-          input.value += '-';
-        }
-      })
+    while (firstSet.length < parseInt(firstMatch)) {
+      firstSet += '_';
     }
-  
-    get selectedItem() {
-
-      let selectItem = this.options.find((i) => i.code === this.selectedOption);
-
-      this.validateNumber()
-
-      return selectItem;
-
+    while (secondSet.length < parseInt(secondMatch)) {
+      secondSet += '_';
     }
+    while (thirdSet.length < parseInt(thirdMatch)) {
+      thirdSet += '_';
+    }
+
+    set = set.concat(firstSet + '-' + secondSet + '-' + thirdSet);
+
+    input.setAttribute('placeholder', set);
+    input.setAttribute('maxlength', set.length);
+    if (banner != null && banner != undefined) {
+      banner.removeAttribute('class', 'fake-placeholder');
+    }
+
+    input.addEventListener('keyup', function (e) {
+      const firstSplit = parseInt(firstMatch),
+        secondSplit = parseInt(firstMatch) + parseInt(secondMatch) + 1;
+
+      if (
+        e.key != 'Backspace' &&
+        (input.value.length === firstSplit ||
+          input.value.length === secondSplit)
+      ) {
+        input.value += '-';
+      }
+    });
+  }
+
+  get selectedItem() {
+    let selectItem = this.options.find((i) => i.code === this.selectedOption);
+
+    this.validateNumber();
+
+    return selectItem;
+  }
 }

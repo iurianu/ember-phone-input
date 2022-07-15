@@ -1,0 +1,24 @@
+footer {
+    &.au-c-main-footer {
+        .au-c-main-footer__content {
+            width: calc(100% - 200px)
+        }
+        .au-c-list-horizontal {
+            &:first-of-type {
+                width: 100%;
+                li {
+                    ul {
+                        width: 100%;
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+        img {
+            &.social-icon {
+                width: 15px;
+                height: auto;
+            }
+        }
+    }
+}

@@ -38,11 +38,11 @@
                 onclick={{action (mut this.selectedOption) value='target.value'}}                
             >
                 <optgroup {{on 'click' this.clearDetails}}>
-                    <AutocompleteInput @options={{this.options}} @query={{this.query}} as |items|>
+                    <AuPhoneInput @options={{this.options}} @query={{this.query}} as |items|>
                         {{#each items as |item|}}
                             <Option @item={{item}} />
                         {{/each}}
-                    </AutocompleteInput>
+                    </AuPhoneInput>
                 </optgroup>
             </datalist>      
         </details>
