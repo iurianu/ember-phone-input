@@ -38,7 +38,7 @@ export default class AuPhoneController extends Controller {
   options = [];
 
   @tracked
-  selectedOption;
+  selectedOption = 'be';
 
   @action
   async clearDetails() {
@@ -49,16 +49,28 @@ export default class AuPhoneController extends Controller {
       list.removeAttribute('open');
     }
 
-    input.value = '';
+    if (input != null && input != undefined) {
+      input.value = '';
+    }
+  }
+
+  @action
+  async validateFormat(e) {
+    const input = document.querySelector('#au-number-input'),
+        pattern = input.placeholder;
+
+    let firstIndex = pattern.indexOf('-'),
+        nextIndex = pattern.indexOf('-', firstIndex + 1);
+
+        if ( e.key != 'Backspace' && (input.value.length === firstIndex || input.value.length === nextIndex) ) {
+            input.value += '-';
+        }
   }
 
   @action
   async validateNumber() {
-    const input = document.querySelector('#au-number-input'),
-      banner = document.querySelectorAll('.fake-placeholder')[0];
-
     let option = this.options.find((i) => i.code === this.selectedOption),
-      pattern = option.pattern;
+       pattern = option.pattern
 
     let firstMatch = pattern.match(/\{(.*?)\}/)[1],
       firstIndex = pattern.indexOf(firstMatch),
@@ -86,24 +98,14 @@ export default class AuPhoneController extends Controller {
 
     set = set.concat(firstSet + '-' + secondSet + '-' + thirdSet);
 
-    input.setAttribute('placeholder', set);
-    input.setAttribute('maxlength', set.length);
-    if (banner != null && banner != undefined) {
-      banner.removeAttribute('class', 'fake-placeholder');
+    const input = document.querySelector('#au-number-input')
+
+    if (input != null && input != undefined) {
+        input.setAttribute('placeholder', set);
+        input.setAttribute('maxlength', set.length);
+        input.setAttribute('pattern', pattern);
     }
 
-    input.addEventListener('keyup', function (e) {
-      const firstSplit = parseInt(firstMatch),
-        secondSplit = parseInt(firstMatch) + parseInt(secondMatch) + 1;
-
-      if (
-        e.key != 'Backspace' &&
-        (input.value.length === firstSplit ||
-          input.value.length === secondSplit)
-      ) {
-        input.value += '-';
-      }
-    });
   }
 
   get selectedItem() {

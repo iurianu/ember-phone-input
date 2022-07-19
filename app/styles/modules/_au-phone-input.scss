@@ -13,14 +13,6 @@
                 padding-left: .5rem;
                 line-height: 3.5rem;
             }
-            &.fake-placeholder {
-                position: relative;
-                &:after {
-                    position: absolute;
-                    content: '🇧🇪';
-                    left: 0.5rem;
-                }
-            }
         }
         input {
             &[type=tel], &[type=text] {
@@ -57,9 +49,10 @@
                 width: calc(100% + 4px);
                 padding: .25rem;
                 summary {
-                    display: block;
                     position: absolute;
-                    top: -1rem;
+                    top: -2.75rem;
+                    left: 2rem;
+                    transform: rotate(180deg);
                     &::marker {
                         position: absolute;
                         top: -2.5rem;
@@ -110,6 +103,7 @@
                     z-index: 233;
                     border: 1px outset lightgray !important;
                     margin-bottom: .125rem;
+                    letter-spacing: normal;
                 }
             }
         }

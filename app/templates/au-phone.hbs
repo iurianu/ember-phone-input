@@ -1,12 +1,16 @@
 {{page-title "AuPhone"}}
+
 <h1>Phone Input with Search, and Validation, Built as an AU Component</h1>
+
 <br>
+
 <blockquote>
     The dropdown takes its values from the options variable defined in the controller.<br>
-    The validation is made after loading the data, considering the defined pattern for each country.
+    The validation takes place after the data is loaded, using the defined pattern, specific for each country.
 </blockquote>
 
 <br>
+<form>
 <AuFieldset
     class="au-phone-input"
     @alignment={{this.alignment}}
@@ -18,12 +22,14 @@
         <Input id="in-phone" @type="hidden" @value={{this.selectedOption}} onchange={{get this.selectedItem}}/>
 
         {{!-- template-lint-disable require-input-label --}}
-        <label for="au-phone-prefix" class="fake-placeholder">{{this.selectedItem.icon}}</label>
-        <AuInput id="au-phone-prefix" @type="text" @value={{this.selectedItem.prefix}} placeholder="+32" disabled />
+        <label for="au-phone-prefix">{{this.selectedItem.icon}}</label>
+        <AuInput id="au-phone-prefix" name="au-phone-prefix" @type="text" @value={{this.selectedItem.prefix}} readonly />
 
-        <AuInput id="au-number-input" @type="tel" 
-            pattern={{this.selectedItem.pattern}}
-            placeholder="Insert Your Number!"
+        <AuInput id="au-number-input" name="au-number-input" @type="tel" 
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+            maxlength="11"
+            placeholder="___-___-___"
+            {{on 'keyup' this.validateFormat}} 
         />
 
         <details title="Click to Select Country!" id="country-list" >
@@ -35,7 +41,7 @@
             {{!-- template-lint-disable no-invalid-interactive --}}
             <datalist 
                 role="search" class="results" 
-                onclick={{action (mut this.selectedOption) value='target.value'}}                
+                onclick={{action (mut this.selectedOption) value='target.value'}}
             >
                 <optgroup {{on 'click' this.clearDetails}}>
                     <AuPhoneInput @options={{this.options}} @query={{this.query}} as |items|>
@@ -48,4 +54,7 @@
         </details>
 
     </f.content>
+
 </AuFieldset>
+
+</form>
