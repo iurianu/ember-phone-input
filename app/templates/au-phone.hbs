@@ -19,11 +19,21 @@
 
     <f.content>
 
-        <Input id="in-phone" @type="hidden" @value={{this.selectedOption}} onchange={{get this.selectedItem}}/>
+        <Input 
+            id="in-phone" 
+            @type="hidden" 
+            @value={{this.selectedOption}} 
+            onchange={{get this.selectedItem}}
+        />
 
         {{!-- template-lint-disable require-input-label --}}
         <label for="au-phone-prefix">{{this.selectedItem.icon}}</label>
-        <AuInput id="au-phone-prefix" name="au-phone-prefix" @type="text" @value={{this.selectedItem.prefix}} readonly />
+        <AuInput 
+            id="au-phone-prefix" 
+            name="au-phone-prefix" 
+            @type="text" readonly
+            @value={{this.selectedItem.prefix}}
+        />
 
         <AuInput id="au-number-input" name="au-number-input" @type="tel" 
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
